@@ -1,0 +1,14 @@
+language: go
+
+go:
+  - 1.13.x
+
+script:
+  - make build-wasm
+
+deploy:
+  provider: pages
+  on:
+    branch: master
+  local_dir: wasm
+  github_token: $GITHUB_TOKEN
