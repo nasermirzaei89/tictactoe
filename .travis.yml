@@ -8,7 +8,9 @@ script:
 
 deploy:
   provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: wasm
   on:
     branch: master
-  local_dir: wasm
-  github_token: $GITHUB_TOKEN
