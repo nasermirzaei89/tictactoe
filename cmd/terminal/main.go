@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"github.com/nasermirzaei89/tictactoe"
 	"github.com/nasermirzaei89/tictactoe/selector"
+	"github.com/nasermirzaei89/tictactoe/selector/randomizer"
+	"github.com/nasermirzaei89/tictactoe/selector/unbeatable"
+	"github.com/nasermirzaei89/tictactoe/selector/userinput"
 	"log"
 	"os"
 	"os/exec"
@@ -35,17 +38,17 @@ func main() {
 		var input string
 		_, _ = fmt.Scan(&input)
 		if input == "1" {
-			p1 = selector.NewInput(os.Stdin)
+			p1 = userinput.New(os.Stdin)
 			break
 		}
 
 		if input == "2" {
-			p1 = selector.NewUnbeatable()
+			p1 = unbeatable.New()
 			break
 		}
 
 		if input == "3" {
-			p1 = selector.NewRandom()
+			p1 = randomizer.New()
 			break
 		}
 		fmt.Println("Invalid answer received!")
@@ -65,17 +68,17 @@ func main() {
 		var input string
 		_, _ = fmt.Scan(&input)
 		if input == "1" {
-			p2 = selector.NewInput(os.Stdin)
+			p2 = userinput.New(os.Stdin)
 			break
 		}
 
 		if input == "2" {
-			p2 = selector.NewUnbeatable()
+			p2 = unbeatable.New()
 			break
 		}
 
 		if input == "3" {
-			p2 = selector.NewRandom()
+			p2 = randomizer.New()
 			break
 		}
 		fmt.Println("Invalid answer received!")

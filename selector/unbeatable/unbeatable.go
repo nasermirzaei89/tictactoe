@@ -1,8 +1,9 @@
-package selector
+package unbeatable
 
 import (
 	"fmt"
 	"github.com/nasermirzaei89/tictactoe"
+	"github.com/nasermirzaei89/tictactoe/selector"
 	"math/rand"
 	"time"
 )
@@ -11,7 +12,7 @@ type unbeatable struct {
 	rnd *rand.Rand
 }
 
-func NewUnbeatable() AI {
+func New() selector.AI {
 	return &unbeatable{
 		rnd: rand.New(rand.NewSource(time.Now().UnixNano())),
 	}

@@ -2,6 +2,8 @@
 export ROOT=$(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 export CGO_ENABLED=0
 
+default: build-terminal build-wasm build-server test
+
 format:
 	gofmt -s -w $(ROOT)
 

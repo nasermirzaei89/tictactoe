@@ -1,8 +1,9 @@
-package selector
+package randomizer
 
 import (
 	"fmt"
 	"github.com/nasermirzaei89/tictactoe"
+	"github.com/nasermirzaei89/tictactoe/selector"
 	"math/rand"
 	"time"
 )
@@ -11,7 +12,7 @@ type random struct {
 	rnd *rand.Rand
 }
 
-func NewRandom() AI {
+func New() selector.AI {
 	return &random{
 		rnd: rand.New(rand.NewSource(time.Now().UnixNano())),
 	}

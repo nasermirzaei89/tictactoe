@@ -3,7 +3,9 @@
 package main
 
 import (
-	"github.com/nasermirzaei89/tictactoe/selector"
+	"github.com/nasermirzaei89/tictactoe/selector/randomizer"
+	"github.com/nasermirzaei89/tictactoe/selector/unbeatable"
+	"github.com/nasermirzaei89/tictactoe/selector/userinput"
 	"strings"
 	"syscall/js"
 )
@@ -12,11 +14,11 @@ func setPlayer1(this js.Value, args []js.Value) interface{} {
 	id := this.Get("id").String()
 	switch id {
 	case "userInput":
-		player1Select <- selector.NewInput(ui)
+		player1Select <- userinput.New(ui)
 	case "unbeatableAI":
-		player1Select <- selector.NewUnbeatable()
+		player1Select <- unbeatable.New()
 	case "randomAI":
-		player1Select <- selector.NewRandom()
+		player1Select <- randomizer.New()
 	}
 
 	return nil
@@ -26,11 +28,11 @@ func setPlayer2(this js.Value, args []js.Value) interface{} {
 	id := this.Get("id").String()
 	switch id {
 	case "userInput":
-		player2Select <- selector.NewInput(ui)
+		player2Select <- userinput.New(ui)
 	case "unbeatableAI":
-		player2Select <- selector.NewUnbeatable()
+		player2Select <- unbeatable.New()
 	case "randomAI":
-		player2Select <- selector.NewRandom()
+		player2Select <- randomizer.New()
 	}
 
 	return nil
